@@ -19,6 +19,5 @@ func newContext(ctx context.Context, e events.APIGatewayProxyRequest) context.Co
 
 // RequestContext returns the APIGatewayProxyRequestContext value stored in ctx.
 func RequestContext(ctx context.Context) (events.APIGatewayProxyRequestContext, bool) {
-	c, ok := ctx.Value(requestContextKey).(events.APIGatewayProxyRequestContext)
-	return c, ok
+	return ctx.Value(requestContextKey).(events.APIGatewayProxyRequestContext), true
 }
